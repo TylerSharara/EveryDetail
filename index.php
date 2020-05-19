@@ -59,8 +59,9 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
         <title> Prac Nav </title>
         <meta charset="UTF-8">
         <meta name="PracNav-1" content="Home page for a mock business">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
 
@@ -203,7 +204,7 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
                 </ul>
             </div>
             <div class="footer-section">
-                <h3 class="footer-header">Lorem Ipsum</h3>
+                <h3 class="footer-header">Company</h3>
                 <ul class="footer-nav">
                     <li class="footer-nav-item"><a href="#" class="footer-nav-link">FAQ's</a></li>
                     <li class="footer-nav-item"><a href="#" class="footer-nav-link">Careers</a></li>
@@ -211,8 +212,16 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
                 </ul>
             </div>
         </div>
-        <div class="footer-container">
-
+        <div class="logo-container">
+            <img class="logo" src="media/every-Detail-Mini-white.png">
+            <p>All rights reserved EveryDetailCleaning © 2020</p>
         </div>
-        Copy Right Every Detail Cleaning
+        <div class="social-container">
+            <p>Stay in Touch! Follow us on social media to get the lastest news and exclusive promotional deals!</p>
+            <ul class="social-nav">
+                <li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
     </footer>
