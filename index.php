@@ -67,14 +67,14 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
 
     <body>
 
-        <div class="home-background">
+        <div id="home" class="home-background">
             <div class="home-overlay"></div>
             <nav>
                 <img class="logo" src="media/every-Detail-Mini-white.png">
                 <ul class="nav-bar">
-                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -88,7 +88,7 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
         </div>
 
         <main>
-            <div class="home-content">
+            <div id="about" class="home-content">
                 <div class="home-content-inner fade-in">
                     <h2>Professional Cleaning</h2>
                     <p class="home-content-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra faucibus.</p>
@@ -155,7 +155,7 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
             </div>
             <br>
             <div class="request-div">
-                <div class="req-form">
+                <div id="contact" class="req-form">
                     <div class="req-overlay"></div>
                     <form method="POST" action="" id="request-form">
                         <h1 class="req-header">&#x2015; Request Estimate &#x2015;</h1>
