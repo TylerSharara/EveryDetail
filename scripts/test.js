@@ -1,4 +1,4 @@
-// Nav-bar Animation ---------------------------------------------------------------
+// Nav-bar Stuff ---------------------------------------------------------------
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-bar');
@@ -22,6 +22,23 @@ const navSlide = () => {
         //burger toggle
         burger.classList.toggle('active');
     });
+};
+
+const navSlide2 = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-bar');
+    const navLinks = document.querySelectorAll('.nav-links');
+
+    for(let i=0; i<navLinks.length; i++) {
+        navLinks[i].addEventListener('click', () => {
+
+            //Toggle Nav
+            nav.classList.toggle('nav-active');
+
+            //burger toggle
+            burger.classList.toggle('active');
+        });
+    }
 };
 
 // Fade-in animation for Home-Content -------------------------------------------------
@@ -83,7 +100,6 @@ for(let i=0;i<tile.length;i++){
     });
 }
 
-
 // Adding Event Listeners for FAQ Accordion -------------------------------------
 const accordions = document.getElementsByClassName("faq-question");
 
@@ -102,7 +118,14 @@ for (let i = 0; i < accordions.length; i++) {
     }
 }
 
+function popHide() {
+    const popCon = document.getElementById('pop-confirmation');
+    popCon.style.display = 'none';
+}
+
 navSlide();
+navSlide2();
+
 
 
 

@@ -17,8 +17,7 @@ function test_input($data) {
 if (isset($_POST['action']) && $_POST['value'] = 'submit'){
 
     $flag = true;
-    $goodMsg = 'Your Info was sent successfully';
-    $errMsg = '';
+    $msg = "";
     $name = test_input($_POST['name']);
     $email = test_input($_POST['email']);
     $phone = test_input($_POST['phone']);
@@ -27,11 +26,11 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
         $flag = false;
         $errMsg = "Please enter a valid name";
     }
-    if(empty($email) || !is_string($email)){
+    if(empty($email) || !is_string($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
         $flag = false;
         $errMsg = "Please enter a valid email";
     }
-    if(empty($phone) || !is_string($phone)){
+    if(empty($phone) || !is_string($phone) || !is_numeric($phone)){
         $flag = false;
         $errMsg = "Please enter a valid phone";
     }
@@ -40,10 +39,11 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
         $sql = "INSERT INTO `Customer` (`customerName`, `customerEmail`, `customerPhone`) VALUES (?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$name, $email, $phone]);
-        echo $goodMsg;
+        $msg = true;
     } else {
-        echo $errMsg;
+        $msg = false;
     }
+
 }
 
 
@@ -84,7 +84,23 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
             </nav>
             <h1 class="home-name">Every Detail Cleaning</h1>
             <p class="home-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra. Etiam mi leo, vulputate tincidunt turpis id, accumsan sodales nibh. Etiam mi leo, vulputate tincidunt turpis id, accumsan sodales nibh.</p>
-            <input type="button" value="Request Estimate" class="home-btn" onclick="test1()">
+            <input type="button" value="Request Estimate" class="home-btn" onclick="window.scrollTo(0, 1500);">
+            <?php
+                if($msg == true) {
+                    echo '<div id="pop-confirmation">';
+                    echo '<h2 class="pop-content">Thank You!</h2>';
+                    echo '<p class="pop-content">Your information was successfully saved. One of our representatives will contact you as soon as possible.</p>';
+                    echo '<input type="button" value="Continue" class="req-btn" onclick="popHide()">';
+                    echo '</div>';
+                }
+                elseif(isset($msg) && $msg == false) {
+                    echo '<div id="pop-confirmation">';
+                    echo '<h2 class="pop-content">Sorry! :(</h2>';
+                    echo '<p class="pop-content">It seems as though something went wrong. Make sure you enter valid information. Please try again later or contact us directly.</p>';
+                    echo '<input type="button" value="Continue" class="req-btn" onclick="popHide()">';
+                    echo '</div>';
+                }
+            ?>
         </div>
 
         <main>
@@ -217,7 +233,7 @@ if (isset($_POST['action']) && $_POST['value'] = 'submit'){
             <p>All rights reserved EveryDetailCleaning © 2020</p>
         </div>
         <div class="social-container">
-            <p>Stay in Touch! Follow us on social media to get the lastest news and exclusive promotional deals!</p>
+            <p>Stay in Touch! Follow us on social media to get exclusive offers!</p>
             <ul class="social-nav">
                 <li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
