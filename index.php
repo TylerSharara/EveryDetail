@@ -1,6 +1,6 @@
 <?php
 //
-// practice nav animation
+// practice nav animation test
 //
 
 include_once('dbcred.php');
